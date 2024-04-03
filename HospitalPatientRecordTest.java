@@ -1,34 +1,32 @@
-package toolsAssignment;
+package TIBEBU;
 
+import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class HospitalPatientRecordTest {
 
     @Test
-    public void testCreatePatientRecord() {
-        HospitalPatientRecord hospitalPatientRecord = new HospitalPatientRecord();
+    public void testCreatePatient() {
+        HospitalPatientRecord hospital = new HospitalPatientRecord();
+        hospital.createPatient("Alex");
         
-
-hospitalPatientRecord.createPatientRecord(1, "Alice");
-        assertEquals("Alice", hospitalPatientRecord.readPatientRecord(1));
+        assertEquals(1, hospital.patients.size());
     }
 
     @Test
-    public void testUpdatePatientRecord() {
-        HospitalPatientRecord hospitalPatientRecord = new HospitalPatientRecord();
-        hospitalPatientRecord.createPatientRecord(2, "Bob");
-        hospitalPatientRecord.updatePatientRecord(2, "Charlie");
-        assertEquals("Charlie", hospitalPatientRecord.readPatientRecord(2));
+    public void testUpdatePatient() {
+        HospitalPatientRecord hospital = new HospitalPatientRecord();
+        hospital.createPatient("Bub");
+        hospital.updatePatient("Bub", "Baba");
+        assertEquals("Baba", hospital.patients.get(0));
     }
 
     @Test
-    public void testDeletePatientRecord() {
-        HospitalPatientRecord hospitalPatientRecord = new HospitalPatientRecord();
-        hospitalPatientRecord.createPatientRecord(3, "David");
-        hospitalPatientRecord.deletePatientRecord(3);
-        assertNull(hospitalPatientRecord.readPatientRecord(3));
+    public void testDeletePatient() {
+        HospitalPatientRecord hospital = new HospitalPatientRecord();
+        hospital.createPatient("Chala");
+        hospital.deletePatient("Chala");
+        assertEquals(0, hospital.patients.size());
     }
 }
-

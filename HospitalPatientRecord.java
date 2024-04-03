@@ -1,93 +1,82 @@
-package toolsAssignment;
+package TIBEBU;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HospitalPatientRecord {
+	List<String> patients = new ArrayList<>();
 
-    private Map<Integer, String> patientRecords;
+	public void createPatient(String name) {
+	        patients.add(name);
+	System.out.println("Patient " + name + " created successfully.");
+	    }
+	public void readPatients() {
+	System.out.println("List of Patients:");
+	for (String patient : patients) {
+	            System.out.println(patient);
+	        }
+	    }
 
-    public HospitalPatientRecord() {
-        patientRecords = new HashMap<>();
-    }
+	public void updatePatient(String oldName, String newName) {
+	if (patients.contains(oldName)) {
+	patients.set(patients.indexOf(oldName), newName);
+	System.out.println("Patient " + oldName + " updated to " + newName + " successfully.");
+	        } else {
+	System.out.println("Patient not found.");
+	        }
+	    }
 
-    public void createPatientRecord(int patientId, String patientName) {
-        patientRecords.put(patientId, patientName);
-    }
+	  public void deletePatient(String name) {
+	 if (patients.contains(name)) {
+	            patients.remove(name);
+	 System.out.println("Patient " + name + " deleted successfully.");
+	        } else {
+	System.out.println("Patient not found.");
+	        }
+	    }
 
-    public String readPatientRecord(int patientId) {
-        return patientRecords.get(patientId);
-    }
+	public static void main(String[] args) {
+	HospitalPatientRecord hospital = new HospitalPatientRecord();
+	Scanner scanner = new Scanner(System.in);
 
-    public void updatePatientRecord(int patientId, String newPatientName) {
-        if (patientRecords.containsKey(patientId)) {
-            patientRecords.put(patientId, newPatientName);
-        } else {
-            System.out.println("Patient record not found for id: " + patientId);
-        }
-    }
+	        while (true) {
+	System.out.println("1. Create Patient");
+	System.out.println("2. Read Patients");
+	System.out.println("3. Update Patient");
+	System.out.println("4. Delete Patient");
+	System.out.println("5. Exit");
 
-    public void deletePatientRecord(int patientId) {
-        if (patientRecords.containsKey(patientId)) {
-            patientRecords.remove(patientId);
-        } else {
-            System.out.println("Patient record not found for id: " + patientId);
-        }
-    }
+	System.out.print("Enter your choice: ");
+	int choice = scanner.nextInt();
 
-    public static void main(String[] args) {
-        HospitalPatientRecord hospitalPatientRecord = new HospitalPatientRecord();
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("1. Create Patient Record");
-            System.out.println("2. Read Patient Record");
-            System.out.println("3. Update Patient Record");
-            System.out.println("4. Delete Patient Record");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter Patient ID: ");
-                    int id = scanner.nextInt();
-                    System.out.print("Enter Patient Name: ");
-                    scanner.nextLine(); // Consume the newline character
-                    String name = scanner.nextLine();
-                    hospitalPatientRecord.createPatientRecord(id, name);
-                    break;
-                case 2:
-                    System.out.print("Enter Patient ID to read: ");
-                    int readId = scanner.nextInt();
-                    String patientName = hospitalPatientRecord.readPatientRecord(readId);
-                    if (patientName != null) {
-                        System.out.println("Patient Name: " + patientName);
-                    } else {
-                        System.out.println("Patient record not found for id: " + readId);
-                    }
-                    break;
-                case 3:
-                    System.out.print("Enter Patient ID to update: ");
-                    int updateId = scanner.nextInt();
-                    System.out.print("Enter New Patient Name: ");
-                    scanner.nextLine(); // Consume the newline character
-                    String newName = scanner.nextLine();
-                    hospitalPatientRecord.updatePatientRecord(updateId, newName);
-                    break;
-                case 4:
-                    System.out.print("Enter Patient ID to delete: ");
-                    int deleteId = scanner.nextInt();
-                    hospitalPatientRecord.deletePatientRecord(deleteId);
-                    break;
-                case 5:
-                    System.out.println("Exiting application...");
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        }
-    }
-}
+	            switch (choice) {
+	                case 1:
+	System.out.print("Enter patient name: ");
+	String name = scanner.next();
+	hospital.createPatient(name);
+	                break;
+	                case 2:
+	 hospital.readPatients();
+	                break;
+	                case 3:
+	System.out.print("Enter old patient name: ");
+	String oldName = scanner.next();
+	System.out.print("Enter new patient name: ");
+	String newName = scanner.next();
+	hospital.updatePatient(oldName, newName);
+	                break;
+	                case 4:
+	System.out.print("Enter patient name to delete: ");
+	String deleteName = scanner.next();
+	hospital.deletePatient(deleteName);
+	                break;
+	                case 5:
+	System.exit(0);
+	                default:
+	System.out.println("Invalid choice. Please try again.");
+	            }
+	        }
+	    }
+	}
 
