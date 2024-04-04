@@ -1,14 +1,13 @@
 ## SOFTWARE TOOLS AND PRACTICE GROUP ASSIGNMENT
-### GROUP 5
-### Group 5 student list
-|First name |Last name|ID number |
-| ---  | --- | ---  |
-|Abebe|Marye|1306166|
-|Abel|Assefa|1300419|
-|Dabala|Dangla|1300763|
-|Elias |Nuredin|1301011|
-|Tibebu|Dereje|1201981|
-|Kaleab|Bayeh|1301691|
+ ### Contributers|
+|NO|First name |Last name| ID number |username|
+|---| ---  | --- | ---  | --- |
+|1|Abebe|Marye|1306166|Abebe55|
+|2|Abel|Assefa|1300419|Abel3aago|
+|3|Dabala|Dangla|1300763|Dabalaa29|
+|4|Elias |Nuredin|1301011|elanur1234|
+|5|Tibebu|Dereje|1201981|Oliad12|
+|6|Kaleab|Bayeh|1301691|kalink-32|
 
 ### Quastions
 1. Find the largest element in an array.
