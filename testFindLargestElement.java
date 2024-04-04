@@ -1,23 +1,19 @@
-import org.junit.jupiter.api.Test;
+package toolsAssignment;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class testFindLargestElement {
-    
-    @Test
-    void testFindLargest() {
-        int[] arr = {5, 10, 3, 8, 2};
-        int expectedLargest = 10;
-        int actualLargest = LargestElement.findLargest(arr);
-        assertEquals(expectedLargest, actualLargest);
+import org.junit.jupiter.api.Test;
+
+import toolsAssignment.LargestElement;
+
+public class LargestElementTest {
+	@Test
+    public void testFindLargestElement() {
+		LargestElement tool = new LargestElement();
+        int[] arr = {1, 2, 3, 4, 5, 200, 87, 56, 924, 92654, 2876, 987};
+        int expectedLE = 92654;
+        int actualLE= tool.findLargestElement(arr);
+        assertEquals(expectedLE, actualLE);
     }
-    
-    @Test
-    void testFindLargest_EmptyArray() {
-        int[] arr = {};
-        try {
-            LargestElement.findLargest(arr);
-        } catch (IllegalArgumentException e) {
-            assertEquals("Array must not be empty or null", e.getMessage());
-        }
-    }
+
 }

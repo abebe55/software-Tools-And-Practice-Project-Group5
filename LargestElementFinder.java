@@ -1,21 +1,33 @@
 package toolsAssignment;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LargestElementFinder {
+public class LargestElement {
 
-  public class LargestElementFinder {
-    public static int findLargest(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            throw new IllegalArgumentException("Array must not be empty or null");
+	public int findLargestElement(int[] arr) {
+	    int max = arr[0];
+	    for (int i=0;i<arr.length;i++) {
+	        if (arr[i] > max) {
+	            max = arr[i];
+	        }
+	    }
+		return max;
+	}
+	
+	public static void main(String[] args) {
+        Scanner input= new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n=input.nextInt();
+        int[]arr=new int[n];
+        System.out.println("Enter array values");
+        for(int i=0;i<arr.length;i++) {
+        	System.out.print(" arr["+i+"]= ");
+        	arr[i]=input.nextInt();
         }
-        
-        int largest = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > largest) {
-                largest = arr[i];
-            }
-        }
-        
-        return largest;
+
+        LargestElement element= new LargestElement();
+        int result = element.findLargestElement(arr);
+        System.out.println("The Largest number is: " + result);
     }
 }

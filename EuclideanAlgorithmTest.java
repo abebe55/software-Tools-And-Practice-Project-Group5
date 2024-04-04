@@ -1,17 +1,17 @@
 package toolsAssignment;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-
-    import org.junit.jupiter.api.Test;
-    import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class EuclideanAlgorithmTest {
-    @Test
-    public void testGcd() {
-        assertEquals(14, EuclideanAlgorithmTest.gcd(42, 56));
-        assertEquals(1, EuclideanAlgorithmTest.gcd(17, 31));
-    
-    }
+	 @Test
+	    public void testEuclideanAlgorithm() {
+		 EuclideanAlgorithm tools = new EuclideanAlgorithm();
+	        int expectedEA = 1;
+	        int actualEA = tools.euclideanAlgorithm(13, 45);
+	        
+	        assertEquals(expectedEA,actualEA);
+	    }
+
 }
