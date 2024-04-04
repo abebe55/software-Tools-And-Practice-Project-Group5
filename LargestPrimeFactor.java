@@ -4,33 +4,37 @@ package toolsAssignment;
 
 import java.util.Scanner;
 
+public class LargestPrimeFactor {
 
-public class LargestPrimeFactor{
-    
-public int largestPrimeFactor(int num) {
-    int factor = 2;
-    while (num > 1) {
-        if (num % factor == 0) {
-            num /= factor;
-        } else {
-            factor++;
+    public static long largestPrimeFactor(long n) {
+        long maxPrime = -1;
+        
+        while (n % 2 == 0) {
+            maxPrime = 2;
+            n /= 2;
         }
+        
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            while (n % i == 0) {
+                maxPrime = i;
+                n /= i;
+            }
+        }
+        
+        if (n > 2) {
+            maxPrime = n;
+        }
+        
+        return maxPrime;
     }
-    
-	return factor;
-}
-
-  
-
 
     public static void main(String[] args) {
-        Scanner input= new Scanner(System.in);
-        System.out.print("Enter a number to find its largest prime factor: ");
-        int inputNumber = input.nextInt();
-
-        LargestPrimeFactor factor= new LargestPrimeFactor();
-        int result = factor.largestPrimeFactor(inputNumber);
-        System.out.println("Largest prime factor of " + inputNumber + " is: " + result);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        long num = scanner.nextLong();
+        scanner.close();
+        
+        long result = largestPrimeFactor(num);
+        System.out.println("Largest prime factor of " + num + " is: " + result);
     }
 }
-

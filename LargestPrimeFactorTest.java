@@ -4,14 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LargestPrimeFactorTest{
-	
-   
+public class LargestPrimeFactorTest {
+
     @Test
-    public void test() {
-        LargestPrimeFactor tool = new LargestPrimeFactor();
-        int expectedPF = 109;
-        int actualPF = tool.largestPrimeFactor(654);
-         assertEquals (expectedPF,actualPF);
+    public void testLargestPrimeFactor() {
+    	LargestPrimeFactor check = new LargestPrimeFactor();
+    	long assign= 13;
+    	long checker=check.largestPrimeFactor(234);
+    	
+        assertEquals(assign,checker);
+        
     }
 }
